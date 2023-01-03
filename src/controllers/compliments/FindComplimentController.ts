@@ -1,23 +1,23 @@
 import { Request, Response } from 'express';
-import { RemoveUserService } from '@services/users/RemoveUserService';
+import { FindComplimentService } from '@services/compliments/FindComplimentService';
 import {
   IResponse,
   IResponseParams,
   Response as ResponseHandler,
 } from '@utils/Response';
 
-class RemoveUserController {
+class FindComplimentController {
   async handle(
     request: Request,
     response: Response
   ): Promise<Response<IResponse>> {
-    const removeUserService = new RemoveUserService();
+    const findComplimentService = new FindComplimentService();
     const { id } = request.params;
-    const status = await removeUserService.execute({ id });
+    const tags = await findComplimentService.execute({ id });
 
     const responseParams: IResponseParams = {
       statusCode: 200,
-      data: status,
+      data: tags,
     };
 
     return response.status(200).json(ResponseHandler.set(responseParams));
@@ -26,4 +26,4 @@ class RemoveUserController {
   constructor() {}
 }
 
-export { RemoveUserController };
+export { FindComplimentController };

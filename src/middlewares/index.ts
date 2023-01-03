@@ -1,4 +1,4 @@
-import { ensureAdmin } from './ensureAdmin';
-import { exceptions } from './exceptions';
+import { ensureAdmin } from '@middleware/ensureAdmin';
+import { exceptions } from '@middleware/exceptions';
 
 export { ensureAdmin, exceptions };

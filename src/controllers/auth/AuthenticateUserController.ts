@@ -1,23 +1,25 @@
 import { Request, Response } from 'express';
-import { CreateTagService } from '@services/tags/CreateTagService';
+import { AuthenticateUserService } from '@services/auth/AuthenticateUserService';
+import { HttpStatusCode } from '@utils/HttpStatusCode';
 import {
   IResponse,
   IResponseParams,
   Response as ResponseHandler,
 } from '@utils/Response';
 
-class CreateTagController {
+class AuthenticateUserController {
   async handle(
     request: Request,
     response: Response
   ): Promise<Response<IResponse>> {
-    const createTagService = new CreateTagService();
-    const { name } = request.body;
+    const authenticateUserService = new AuthenticateUserService();
+    const { email, password } = request.body;
 
-    await createTagService.execute({ name });
+    const token = await authenticateUserService.execute({ email, password });
 
     const responseParams: IResponseParams = {
       statusCode: 201,
+      data: token,
     };
 
     return response.status(201).json(ResponseHandler.set(responseParams));
@@ -26,4 +28,4 @@ class CreateTagController {
   constructor() {}
 }
 
-export { CreateTagController };
+export { AuthenticateUserController };

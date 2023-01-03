@@ -1,5 +1,5 @@
 import { getCustomRepository } from 'typeorm';
-import { UsersRepository } from '../../repositories/UsersRepository';
+import { UsersRepository } from '@repositories/UsersRepository';
 
 interface IRequestParams {
   id: string;

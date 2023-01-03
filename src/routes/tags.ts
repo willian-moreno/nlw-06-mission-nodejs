@@ -1,8 +1,8 @@
-import { router } from '../routes';
-import { CreateTagController } from '../controllers/tags/CreateTagController';
-import { FindTagController } from '../controllers/tags/FindTagController';
-import { RemoveTagController } from '../controllers/tags/RemoveTagController';
-import { ensureAdmin as ensureAdminMiddleware } from '../middlewares';
+import { router } from '@routes/index';
+import { CreateTagController } from '@controllers/tags/CreateTagController';
+import { FindTagController } from '@controllers/tags/FindTagController';
+import { RemoveTagController } from '@controllers/tags/RemoveTagController';
+import { ensureAdmin as ensureAdminMiddleware } from '@middleware/index';
 
 const createTagController = new CreateTagController();
 const findTagController = new FindTagController();

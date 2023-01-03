@@ -1,11 +1,10 @@
 import { Request, Response } from 'express';
-import { FindTagService } from '../../use-cases/tags/FindTagService';
-import { HttpStatusCode } from '../../utils/HttpStatusCode';
+import { FindTagService } from '@services/tags/FindTagService';
 import {
   IResponse,
   IResponseParams,
   Response as ResponseHandler,
-} from '../../utils/Response';
+} from '@utils/Response';
 
 class FindTagController {
   async handle(
@@ -18,7 +17,6 @@ class FindTagController {
 
     const responseParams: IResponseParams = {
       statusCode: 200,
-      status: HttpStatusCode.getMessage(200),
       data: tags,
     };
 

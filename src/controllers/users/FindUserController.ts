@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
-import { FindUserService } from '../../use-cases/users/FindUserService';
-import { HttpStatusCode } from '../../utils/HttpStatusCode';
+import { FindUserService } from '@services/users/FindUserService';
 import {
   IResponse,
-  IResponseParams, Response as ResponseHandler
-} from '../../utils/Response';
+  IResponseParams,
+  Response as ResponseHandler,
+} from '@utils/Response';
 
 class FindUserController {
   async handle(
@@ -17,7 +17,6 @@ class FindUserController {
 
     const responseParams: IResponseParams = {
       statusCode: 200,
-      status: HttpStatusCode.getMessage(200),
       data: users,
     };
 
@@ -28,4 +27,3 @@ class FindUserController {
 }
 
 export { FindUserController };
-

@@ -1,9 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import { HttpStatusCode } from '../utils/HttpStatusCode';
-import {
-  Response as ResponseHandler,
-  IResponseParams,
-} from '../utils/Response';
+import { HttpStatusCode } from '@utils/HttpStatusCode';
+import { Response as ResponseHandler, IResponseParams } from '@utils/Response';
 
 function exceptions(
   err: Error,
@@ -14,7 +11,6 @@ function exceptions(
   if (err instanceof Error) {
     const badRequest: IResponseParams = {
       message: err.message,
-      status: HttpStatusCode.getMessage(400),
       statusCode: 400,
     };
 
@@ -23,7 +19,6 @@ function exceptions(
 
   const internalServerError: IResponseParams = {
     message: HttpStatusCode.getMessage(500),
-    status: HttpStatusCode.getMessage(500),
     statusCode: 500,
   };
 

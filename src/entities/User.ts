@@ -15,20 +15,23 @@ class User {
   @PrimaryColumn()
   readonly id: string;
 
-  @Column()
+  @Column({ length: 100 })
   name: string;
 
-  @Column()
+  @Column({ length: 150 })
   email: string;
+
+  @Column({ length: 255 })
+  password: string;
 
   @Column()
   admin: boolean;
 
-  @CreateDateColumn()
-  created_at: Date;
+  @CreateDateColumn({ name: 'created_at' })
+  createdAt: Date;
 
-  @UpdateDateColumn()
-  updated_at: Date;
+  @UpdateDateColumn({ name: 'updated_at' })
+  updatedAt: Date;
 
   constructor() {
     if (!this.id) {

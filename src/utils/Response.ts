@@ -1,3 +1,5 @@
+import { HttpStatusCode } from '@utils/HttpStatusCode';
+
 interface IResponse {
   success: boolean;
   status: string;
@@ -11,7 +13,6 @@ interface IResponse {
 
 interface IResponseParams {
   message?: string | null;
-  status: string;
   statusCode: number | null;
   data?: any | null;
   previous?: string | null;
@@ -22,13 +23,8 @@ class Response {
     return this._config(params);
   }
 
-  static Response(params: IResponseParams): IResponse {
-    return this._config(params);
-  }
-
   static _config({
     message,
-    status,
     statusCode,
     data,
     previous,
@@ -36,7 +32,7 @@ class Response {
     const success = statusCode <= 399 ? true : false;
     return {
       success,
-      status,
+      status: HttpStatusCode.getMessage(statusCode),
       statusCode,
       response: {
         message,

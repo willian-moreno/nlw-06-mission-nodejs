@@ -1,5 +1,5 @@
 import { getCustomRepository } from 'typeorm';
-import { TagsRepository } from '../../repositories/TagsRepository';
+import { TagsRepository } from '@repositories/TagsRepository';
 
 interface IRequestParams {
   id?: string;

@@ -5,8 +5,8 @@
   "license": "ISC",
   "main": "index.js",
   "scripts": {
-    "start:dev": "ts-node-dev src/server.ts",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js "
+    "start:dev": "ts-node-dev -r tsconfig-paths/register src/server.ts",
+    "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js "
   },
   "repository": {
     "type": "git",
@@ -19,17 +19,27 @@
   },
   "homepage": "https://github.com/willian-moreno/nlw-mission-nodejs-2021#readme",
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
     "@types/express": "^4.17.15",
+    "@types/jsonwebtoken": "^9.0.0",
+    "@types/moment": "^2.13.0",
     "@types/uuid": "^9.0.0",
+    "@types/validator": "^13.7.10",
     "prettier": "^2.8.1",
+    "ts-alias": "^0.0.6",
+    "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.1.2",
     "typescript": "^4.9.4"
   },
   "dependencies": {
     "@types/node": "^18.11.18",
-    "@types/validator": "^13.7.10",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^9.0.0",
+    "moment": "^2.29.4",
     "reflect-metadata": "^0.1.13",
     "sqlite3": "^5.1.4",
     "typeorm": "0.2.45",

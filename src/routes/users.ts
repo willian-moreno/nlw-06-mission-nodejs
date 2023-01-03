@@ -1,8 +1,8 @@
-import { router } from '../routes';
-import { CreateUserController } from '../controllers/users/CreateUserController';
-import { FindUserController } from '../controllers/users/FindUserController';
-import { RemoveUserController } from '../controllers/users/RemoveUserController';
-import { ensureAdmin as ensureAdminMiddleware } from '../middlewares';
+import { router } from '@routes/index';
+import { CreateUserController } from '@controllers/users/CreateUserController';
+import { FindUserController } from '@controllers/users/FindUserController';
+import { RemoveUserController } from '@controllers/users/RemoveUserController';
+import { ensureAdmin as ensureAdminMiddleware } from '@middleware/index';
 
 const createUserController = new CreateUserController();
 const findUserController = new FindUserController();

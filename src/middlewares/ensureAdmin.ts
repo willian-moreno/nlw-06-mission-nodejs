@@ -1,9 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import { HttpStatusCode } from '../utils/HttpStatusCode';
-import {
-  Response as ResponseHandler,
-  IResponseParams,
-} from '../utils/Response';
+import { HttpStatusCode } from '@utils/HttpStatusCode';
+import { Response as ResponseHandler, IResponseParams } from '@utils/Response';
 
 function ensureAdmin(request: Request, response: Response, next: NextFunction) {
   const admin = true;
@@ -14,7 +11,6 @@ function ensureAdmin(request: Request, response: Response, next: NextFunction) {
 
   const unauthorized: IResponseParams = {
     message: HttpStatusCode.getMessage(401),
-    status: HttpStatusCode.getMessage(401),
     statusCode: 401,
   };
 

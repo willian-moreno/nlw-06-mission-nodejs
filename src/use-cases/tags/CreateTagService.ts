@@ -1,5 +1,5 @@
 import { getCustomRepository } from 'typeorm';
-import { TagsRepository } from '../../repositories/TagsRepository';
+import { TagsRepository } from '@repositories/TagsRepository';
 
 interface IRequest {
   name: string;
@@ -7,9 +7,7 @@ interface IRequest {
 
 class CreateTagService {
   async execute({ name }: IRequest) {
-    if (!name) {
-      throw new Error('Tag param is mandatory');
-    }
+    if (!name) throw new Error('Name param is mandatory');
 
     const tagsRepository = getCustomRepository(TagsRepository);
 
@@ -26,10 +24,6 @@ class CreateTagService {
     });
 
     await tagsRepository.save(tag);
-
-    return {
-      tag,
-    };
   }
 
   constructor() {}

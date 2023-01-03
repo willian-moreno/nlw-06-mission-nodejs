@@ -1,11 +1,10 @@
 import { Request, Response } from 'express';
-import { RemoveTagService } from '../../use-cases/tags/RemoveTagService';
-import { HttpStatusCode } from '../../utils/HttpStatusCode';
+import { RemoveTagService } from '@services/tags/RemoveTagService';
 import {
   IResponse,
   IResponseParams,
   Response as ResponseHandler,
-} from '../../utils/Response';
+} from '@utils/Response';
 
 class RemoveTagController {
   async handle(
@@ -18,7 +17,6 @@ class RemoveTagController {
 
     const responseParams: IResponseParams = {
       statusCode: 200,
-      status: HttpStatusCode.getMessage(200),
       data: status,
     };
 
