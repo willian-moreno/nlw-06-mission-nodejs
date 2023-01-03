@@ -1,6 +1,6 @@
 interface IResponse {
   success: boolean;
-  status?: 'ok' | 'error' | 'warn' | 'info';
+  status: string;
   statusCode: number;
   response: {
     message?: string | null;
@@ -11,41 +11,31 @@ interface IResponse {
 
 interface IResponseParams {
   message?: string | null;
-  status?: 'ok' | 'error' | 'warn' | 'info';
+  status: string;
   statusCode: number | null;
   data?: any | null;
   previous?: string | null;
 }
 
 class Response {
-  static success({
-    message = '',
-    status = 'ok',
-    statusCode,
-    data,
-    previous,
-  }: IResponseParams): IResponse {
-    return {
-      success: true,
-      status,
-      statusCode,
-      response: {
-        message,
-        data,
-        previous,
-      },
-    };
+  static set(params: IResponseParams): IResponse {
+    return this._config(params);
   }
 
-  static error({
-    message = '',
-    status = 'error',
+  static Response(params: IResponseParams): IResponse {
+    return this._config(params);
+  }
+
+  static _config({
+    message,
+    status,
     statusCode,
     data,
     previous,
   }: IResponseParams): IResponse {
+    const success = statusCode <= 399 ? true : false;
     return {
-      success: false,
+      success,
       status,
       statusCode,
       response: {

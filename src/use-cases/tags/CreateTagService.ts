@@ -1,21 +1,21 @@
 import { getCustomRepository } from 'typeorm';
-import { TagsRepository } from '../repositories/TagsRepository';
+import { TagsRepository } from '../../repositories/TagsRepository';
 
-interface ITagRequest {
+interface IRequest {
   name: string;
 }
 
 class CreateTagService {
-  async execute({ name }: ITagRequest) {
+  async execute({ name }: IRequest) {
+    if (!name) {
+      throw new Error('Tag param is mandatory');
+    }
+
     const tagsRepository = getCustomRepository(TagsRepository);
 
     const tagAlreadyExists = await tagsRepository.findOne({
       name,
     });
-
-    if (!name) {
-      throw new Error('Name incorrect');
-    }
 
     if (tagAlreadyExists) {
       throw new Error('Tag already exists');
@@ -35,4 +35,4 @@ class CreateTagService {
   constructor() {}
 }
 
-export { CreateTagService, ITagRequest };
+export { CreateTagService, IRequest };

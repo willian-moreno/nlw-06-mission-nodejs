@@ -1,8 +1,20 @@
 import { router } from '../routes';
-import { CreateUserController } from '../controllers/CreateUserController';
+import { CreateUserController } from '../controllers/users/CreateUserController';
+import { FindUserController } from '../controllers/users/FindUserController';
+import { RemoveUserController } from '../controllers/users/RemoveUserController';
+import { ensureAdmin as ensureAdminMiddleware } from '../middlewares';
 
 const createUserController = new CreateUserController();
+const findUserController = new FindUserController();
+const removeUsersController = new RemoveUserController();
 
-router.post('/users', createUserController.handle);
+router.get('/users', findUserController.handle);
+router.get('/users/:id', findUserController.handle);
+router.post('/users', ensureAdminMiddleware, createUserController.handle);
+router.delete(
+  '/users/:id',
+  ensureAdminMiddleware,
+  removeUsersController.handle
+);
 
 export { router };
