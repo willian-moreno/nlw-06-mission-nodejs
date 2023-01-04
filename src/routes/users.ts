@@ -23,27 +23,32 @@ router.get(
   ensureAdminMiddleware,
   findUserController.handle
 );
+
 router.get(
   '/users/from/:id',
   ensureAuthenticatedMiddleware,
   findUserController.handle
 );
+
 router.get(
-  '/users/sender',
+  '/users/compliments/send',
   ensureAuthenticatedMiddleware,
   findUserSendComplimentsController.handle
 );
+
 router.get(
-  '/users/receiver',
+  '/users/compliments/receive',
   ensureAuthenticatedMiddleware,
   findUserReceiveComplimentsController.handle
 );
+
 router.post(
   '/users',
   ensureAuthenticatedMiddleware,
   ensureAdminMiddleware,
   createUserController.handle
 );
+
 router.delete(
   '/users/from/:id',
   ensureAuthenticatedMiddleware,
