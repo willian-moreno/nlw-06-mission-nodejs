@@ -1,6 +1,6 @@
 import { getCustomRepository } from 'typeorm';
 import { UsersRepository } from '@repositories/UsersRepository';
-
+import { classToPlain } from 'class-transformer';
 interface IRequestParams {
   id?: string;
 }
@@ -17,7 +17,7 @@ class FindUserService {
     }
 
     return {
-      users,
+      users: classToPlain(users),
     };
   }
 

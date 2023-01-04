@@ -1,5 +1,6 @@
 import { getCustomRepository } from 'typeorm';
 import { TagsRepository } from '@repositories/TagsRepository';
+import { classToPlain } from 'class-transformer';
 
 interface IRequestParams {
   id?: string;
@@ -17,7 +18,7 @@ class FindTagService {
     }
 
     return {
-      tags,
+      tags: classToPlain(tags),
     };
   }
 

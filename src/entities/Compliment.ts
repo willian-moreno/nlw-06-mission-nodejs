@@ -1,3 +1,6 @@
+import { v4 as uuid } from 'uuid';
+import { Tag } from '@entities/Tag';
+import { User } from '@entities/User';
 import {
   Column,
   CreateDateColumn,
@@ -6,10 +9,6 @@ import {
   ManyToOne,
   PrimaryColumn,
 } from 'typeorm';
-
-import { v4 as uuid } from 'uuid';
-import { Tag } from '@entities/Tag';
-import { User } from '@entities/User';
 
 @Entity('compliments')
 export class Compliment {

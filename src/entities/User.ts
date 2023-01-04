@@ -1,3 +1,5 @@
+import { v4 as uuid } from 'uuid';
+import { Exclude } from 'class-transformer';
 import {
   Column,
   CreateDateColumn,
@@ -6,8 +8,6 @@ import {
   Unique,
   UpdateDateColumn,
 } from 'typeorm';
-
-import { v4 as uuid } from 'uuid';
 
 @Unique(['email'])
 @Entity('users')
@@ -21,6 +21,7 @@ class User {
   @Column({ length: 150 })
   email: string;
 
+  @Exclude({ toPlainOnly: true })
   @Column({ length: 255 })
   password: string;
 
