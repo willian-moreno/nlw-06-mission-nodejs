@@ -12,7 +12,8 @@ class CreateComplimentController {
     response: Response
   ): Promise<Response<IResponse>> {
     const createComplimentService = new CreateComplimentService();
-    const { userSenderId, userReceiverId, tagId, message } = request.body;
+    const { userReceiverId, tagId, message } = request.body;
+    const { userId: userSenderId } = request;
 
     await createComplimentService.execute({
       userSenderId,

@@ -11,9 +11,7 @@ class FindUserService {
 
     let users;
     if (id) {
-      users = await usersRepository.findOne({
-        id,
-      });
+      users = await usersRepository.findOne(id);
     } else {
       users = await usersRepository.find();
     }

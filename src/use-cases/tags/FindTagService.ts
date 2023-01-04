@@ -11,9 +11,7 @@ class FindTagService {
 
     let tags;
     if (id) {
-      tags = await tagsRepository.findOne({
-        id,
-      });
+      tags = await tagsRepository.findOne(id);
     } else {
       tags = await tagsRepository.find();
     }

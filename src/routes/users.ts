@@ -2,17 +2,51 @@ import { router } from '@routes/index';
 import { CreateUserController } from '@controllers/users/CreateUserController';
 import { FindUserController } from '@controllers/users/FindUserController';
 import { RemoveUserController } from '@controllers/users/RemoveUserController';
-import { ensureAdmin as ensureAdminMiddleware } from '@middleware/index';
+import { FindUserReceiveComplimentsController } from '@controllers/users/FindUserReceiveComplimentsController';
+import { FindUserSendComplimentsController } from '@controllers/users/FindUserSendComplimentsController';
+import {
+  ensureAdmin as ensureAdminMiddleware,
+  ensureAuthenticated as ensureAuthenticatedMiddleware,
+} from '@middleware/index';
 
 const createUserController = new CreateUserController();
 const findUserController = new FindUserController();
 const removeUsersController = new RemoveUserController();
+const findUserReceiveComplimentsController =
+  new FindUserReceiveComplimentsController();
+const findUserSendComplimentsController =
+  new FindUserSendComplimentsController();
 
-router.get('/users', findUserController.handle);
-router.get('/users/:id', findUserController.handle);
-router.post('/users', ensureAdminMiddleware, createUserController.handle);
+router.get(
+  '/users',
+  ensureAuthenticatedMiddleware,
+  ensureAdminMiddleware,
+  findUserController.handle
+);
+router.get(
+  '/users/from/:id',
+  ensureAuthenticatedMiddleware,
+  findUserController.handle
+);
+router.get(
+  '/users/sender',
+  ensureAuthenticatedMiddleware,
+  findUserSendComplimentsController.handle
+);
+router.get(
+  '/users/receiver',
+  ensureAuthenticatedMiddleware,
+  findUserReceiveComplimentsController.handle
+);
+router.post(
+  '/users',
+  ensureAuthenticatedMiddleware,
+  ensureAdminMiddleware,
+  createUserController.handle
+);
 router.delete(
-  '/users/:id',
+  '/users/from/:id',
+  ensureAuthenticatedMiddleware,
   ensureAdminMiddleware,
   removeUsersController.handle
 );

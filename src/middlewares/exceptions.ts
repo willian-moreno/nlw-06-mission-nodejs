@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from 'express';
-import { HttpStatusCode } from '@utils/HttpStatusCode';
 import { Response as ResponseHandler, IResponseParams } from '@utils/Response';
 
 function exceptions(
@@ -18,7 +17,6 @@ function exceptions(
   }
 
   const internalServerError: IResponseParams = {
-    message: HttpStatusCode.getMessage(500),
     statusCode: 500,
   };
 

@@ -35,11 +35,17 @@ class Response {
       status: HttpStatusCode.getMessage(statusCode),
       statusCode,
       response: {
-        message,
+        message: this._firstLetterToUpper(message),
         data,
         previous,
       },
     };
+  }
+
+  static _firstLetterToUpper(message: string) {
+    if (message && message.length)
+      return message.charAt(0).toUpperCase() + message.slice(1);
+    return message;
   }
 
   constructor() {}

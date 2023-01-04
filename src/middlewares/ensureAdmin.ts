@@ -1,20 +1,33 @@
 import { Request, Response, NextFunction } from 'express';
-import { HttpStatusCode } from '@utils/HttpStatusCode';
 import { Response as ResponseHandler, IResponseParams } from '@utils/Response';
+import { UsersRepository } from '@repositories/UsersRepository';
+import { getCustomRepository } from 'typeorm';
 
-function ensureAdmin(request: Request, response: Response, next: NextFunction) {
-  const admin = true;
-
-  if (admin) {
-    return next();
-  }
-
+async function ensureAdmin(
+  request: Request,
+  response: Response,
+  next: NextFunction
+) {
+  const { userId } = request;
   const unauthorized: IResponseParams = {
-    message: HttpStatusCode.getMessage(401),
     statusCode: 401,
   };
 
-  return response.status(401).json(ResponseHandler.set(unauthorized));
+  if (!userId) {
+    unauthorized.message = 'User id not found';
+    return response.status(401).json(ResponseHandler.set(unauthorized));
+  }
+
+  const usersRepository = getCustomRepository(UsersRepository);
+  const { admin } = await usersRepository.findOne({
+    id: userId,
+  });
+
+  if (!admin) {
+    return response.status(401).json(ResponseHandler.set(unauthorized));
+  }
+
+  return next();
 }
 
 export { ensureAdmin };

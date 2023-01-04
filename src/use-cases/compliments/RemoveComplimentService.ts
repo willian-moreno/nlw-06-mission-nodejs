@@ -9,9 +9,7 @@ class RemoveComplimentService {
   async execute({ id }: IRequestParams) {
     const complimentsRepository = getCustomRepository(ComplimentsRepository);
 
-    const complimentExists = await complimentsRepository.findOne({
-      id,
-    });
+    const complimentExists = await complimentsRepository.findOne(id);
 
     if (!complimentExists) {
       throw new Error('Compliment not exists');

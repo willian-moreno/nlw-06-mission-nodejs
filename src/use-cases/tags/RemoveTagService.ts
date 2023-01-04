@@ -9,9 +9,7 @@ class RemoveTagService {
   async execute({ id }: IRequestParams) {
     const tagsRepository = getCustomRepository(TagsRepository);
 
-    const tagExists = await tagsRepository.findOne({
-      id,
-    });
+    const tagExists = await tagsRepository.findOne(id);
 
     if (!tagExists) {
       throw new Error('Tag not exists');

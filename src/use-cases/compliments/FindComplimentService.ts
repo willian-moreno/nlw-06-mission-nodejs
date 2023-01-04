@@ -11,9 +11,7 @@ class FindComplimentService {
 
     let compliments;
     if (id) {
-      compliments = await complimentsRepository.findOne({
-        id,
-      });
+      compliments = await complimentsRepository.findOne(id);
     } else {
       compliments = await complimentsRepository.find();
     }
