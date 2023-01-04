@@ -4,6 +4,7 @@ import 'reflect-metadata';
 import '@infra/database/typeorm';
 import dotenv from 'dotenv';
 import path from 'path';
+import cors from 'cors';
 import { router as usersRouter } from '@routes/users';
 import { router as tagsRouter } from '@routes/tags';
 import { router as authRouter } from '@routes/auth';
@@ -21,6 +22,7 @@ const port: number = 3000;
 const app: Express = express();
 
 app.use(express.json());
+app.use(cors());
 
 /** Routes */
 app.use(authRouter, usersRouter, tagsRouter, complimentsRouter);
