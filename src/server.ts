@@ -9,10 +9,7 @@ import { router as usersRouter } from '@routes/users';
 import { router as tagsRouter } from '@routes/tags';
 import { router as authRouter } from '@routes/auth';
 import { router as complimentsRouter } from '@routes/compliments';
-import {
-  exceptions as exceptionsMiddleware,
-  ensureAdmin as ensureAdminMiddleware,
-} from '@middleware/index';
+import { exceptions as exceptionsMiddleware } from '@middleware/index';
 
 dotenv.config({
   path: path.join('..', '.env'),
