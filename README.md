@@ -19,10 +19,10 @@ Projeto **NLW Valoriza**, cujo objetivo e funcionalidades se baseiam em elogiar 
 
 ## Aulas
 
-- [Aula 01 – Liftoff](https://youtu.be/OI5ky4hbXy0?list=PL_75OlCSQ03EvDl5lvv-GmfilYw-mnWI1)
-- [Aula 02 – Maximum Speed](https://youtu.be/Cp3m6GGa2Sk?list=PL_75OlCSQ03EvDl5lvv-GmfilYw-mnWI1)
-- [Aula 03 – In Orbit](https://youtu.be/jRPFAPp4xsM?list=PL_75OlCSQ03EvDl5lvv-GmfilYw-mnWI1)
-- [Aula 04 – Landing](https://youtu.be/xHwiM7W5Rws?list=PL_75OlCSQ03EvDl5lvv-GmfilYw-mnWI1)
-- [Aula 05 - Surface Exploration](https://youtu.be/RrlLOWglBcA?list=PL_75OlCSQ03EvDl5lvv-GmfilYw-mnWI1)
+- [Aula 01 – Liftoff](https://youtu.be/OI5ky4hbXy0)
+- [Aula 02 – Maximum Speed](https://youtu.be/Cp3m6GGa2Sk)
+- [Aula 03 – In Orbit](https://youtu.be/jRPFAPp4xsM)
+- [Aula 04 – Landing](https://youtu.be/xHwiM7W5Rws)
+- [Aula 05 - Surface Exploration](https://youtu.be/RrlLOWglBcA)
 
 \#NeverStopLearning
