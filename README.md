@@ -1,4 +1,4 @@
-# NLW 06 - Mission Node.js
+# NLW Together - Mission Node.js
 
 ## Descrição
 
