@@ -1,5 +1,7 @@
 # NLW Together - Mission Node.js
 
+### `#NeverStopLearning`
+
 ## Descrição
 
 Projeto **NLW Valoriza**, cujo objetivo e funcionalidades se baseiam em elogiar um colega dentro de uma plataforma.<br>
@@ -25,4 +27,3 @@ Projeto **NLW Valoriza**, cujo objetivo e funcionalidades se baseiam em elogiar 
 - [Aula 04 – Landing](https://youtu.be/xHwiM7W5Rws)
 - [Aula 05 - Surface Exploration](https://youtu.be/RrlLOWglBcA)
 
-\#NeverStopLearning
